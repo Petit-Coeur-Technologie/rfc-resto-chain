@@ -8,7 +8,7 @@ const MenuPage = () => {
       description: 'Savourez nos grillades Peri Peri épicées ou nos burgers généreux, préparés avec du poulet croustillant ou du bœuf juteux. Un vrai régal !',
       items: [
         {
-          name: '1/2 Peri Peri Chicken + Fries',
+          name: '1/2 Poulet Peri Peri + Frites',
           price: '75,000',
           description: 'Demi-poulet Peri Peri juteux avec frites',
         },
@@ -110,52 +110,52 @@ const MenuPage = () => {
       description: 'Des menus gourmands avec poulet, burgers, wraps ou pizza, servis avec des frites et une boisson. Parfait pour un repas savoureux, seul ou en famille !',
       items: [
         {
-          name: 'RFC Chicken Fillet Burger',
+          name: 'Burger Filet de Poulet RFC',
           price: '75,000',
           description: 'Burger au filet de poulet croustillant, frites dorées et une boisson fraîche',
         },
         {
-          name: 'RFC Chicken Wrap',
+          name: 'Wrap Poulet RFC',
           price: '60,000',
           description: 'Wrap garni de poulet tendre, accompagné de frites et d’une boisson',
         },
         {
-          name: 'RFC Family Chicken Bucket',
+          name: 'Seau de Poulet Familial RFC',
           price: '250,000',
           description: '8 morceaux de poulet croustillants, 10 ailes épicées, 4 portions de frites et 2 boissons',
         },
         {
-          name: 'RFC Lunch',
+          name: 'Déjeuner RFC',
           price: '60,000',
           description: '2 morceaux de poulet frit, une portion de frites et une boisson',
         },
         {
-          name: 'RFC Variety',
+          name: 'Variety RFC',
           price: '80,000',
           description: '2 morceaux de poulet, 3 ailes épicées, une portion de frites et une boisson',
         },
         {
-          name: 'RFC Mega Mix',
+          name: 'Mega Mix RFC',
           price: '210,000',
           description: '4 morceaux de poulet, 2 burgers filet, 2 portions de frites et 2 boissons',
         },
         {
-          name: 'RFC Chicken Fillet Burger + Wings',
+          name: 'Burger Filet de Poulet + Ailes RFC',
           price: '90,000',
           description: 'Burger filet de poulet, 2 ailes épicées, une portion de frites et une boisson',
         },
         {
-          name: 'RFC Chicken Nuggets',
+          name: 'Nuggets de Poulet RFC',
           price: '45,000',
           description: '6 nuggets de poulet croustillants, une portion de frites et une boisson',
         },
         {
-          name: 'RFC Pizza + Chicken',
+          name: 'Pizza + Poulet RFC',
           price: '150,000',
           description: '1 pizza Margherita, 8 ailes épicées, 2 portions de frites et 2 boissons',
         },
         {
-          name: 'RFC Family Bucket',
+          name: 'Seau Familial RFC',
           price: '200,000',
           description: '10 morceaux de poulet croustillants, 4 portions de frites et 2 boissons',
         },
@@ -351,7 +351,7 @@ const MenuPage = () => {
     <Layout>
       <div className="py-12 bg-gray-100">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-8 text-[#D62828]">Our Menu</h1>
+          <h1 className="text-4xl font-bold mb-8 text-[#D62828]">Notre Menu</h1>
           {menuItems.map((category, index) => (
             <div key={index} className="mb-12">
               <h2 className="text-2xl font-bold mb-4 text-[#D62828]">{category.category}</h2>
