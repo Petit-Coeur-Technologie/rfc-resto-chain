@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import AppRoutes from './routes/AppRoutes';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <p className='text-red-600'>Start prompting (or editing) to see magic happen :)</p>
+    <div className="min-h-screen bg-gray-100">
+      <AppRoutes />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
