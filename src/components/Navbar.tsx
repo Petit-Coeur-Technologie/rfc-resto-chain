@@ -20,7 +20,9 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center p-4">
         {/* Left Section: RFC Restaurant */}
         <div className="flex items-center space-x-2">
-          <img src={logo} alt="Logo de Resto Chain" className="h-10 w-auto" /> {/* Logo */}
+          <Link to="/"> {/* Wrap the logo with a Link */}
+            <img src={logo} alt="Logo de Resto Chain" className="h-10 w-auto" /> {/* Logo */}
+          </Link>
           <span className="text-xl font-bold text-gray-800">RFC Restaurant</span>
         </div>
 

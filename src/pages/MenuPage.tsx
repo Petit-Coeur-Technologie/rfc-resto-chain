@@ -349,7 +349,7 @@ const MenuPage = () => {
 
   return (
     <Layout>
-      <div className="py-12 bg-gray-100">
+      <div className="pt-20 py-12 bg-gray-100"> {/* Added pt-16 for top padding */}
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold mb-8 text-[#D62828]">Notre Menu</h1>
           {menuItems.map((category, index) => (

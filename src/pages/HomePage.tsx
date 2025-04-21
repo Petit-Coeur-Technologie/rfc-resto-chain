@@ -3,6 +3,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import HeroSection from '../components/HeroSection';
 import MenuCard from '../components/MenuCard';
+import heroImage2 from '../assets/images/hero-image2.jpg'; // Import the image
 
 const HomePage = () => {
   const featuredMenu = [
@@ -31,19 +32,19 @@ const HomePage = () => {
       name: 'RFC Kobayah',
       address: '123 Rue Kobayah, Conakry, Guinée',
       phone: '(224) 622-123-456',
-      orderLink: '/location/kobayah', // Updated link
+      orderLink: '/location/kobayah',
     },
     {
       name: 'RFC Kipé',
       address: '456 Avenue Kipé, Conakry, Guinée',
       phone: '(224) 622-654-321',
-      orderLink: '/location/kipe', // Updated link
+      orderLink: '/location/kipe',
     },
     {
       name: 'RFC Nongo',
       address: '789 Route Nongo, Conakry, Guinée',
       phone: '(224) 622-987-654',
-      orderLink: '/location/nongo', // Updated link
+      orderLink: '/location/nongo',
     },
   ];
 
@@ -53,28 +54,28 @@ const HomePage = () => {
       <HeroSection />
 
       {/* Section Localisations */}
-      <section className="py-12 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8 text-[#D62828]">Nos Localisations</h2>
-          <p className="text-center text-gray-600 mb-8">
+      <section className="py-20 bg-white"> {/* Increased vertical padding to py-20 */}
+        <div className="container mx-auto px-6"> {/* Increased horizontal padding */}
+          <h2 className="text-4xl font-bold text-center mb-12 text-[#D62828]">Nos Localisations</h2> {/* Increased font size and margin */}
+          <p className="text-center text-gray-600 mb-12 text-lg"> {/* Increased font size and margin */}
             Dînez sur place ou commandez en ligne pour emporter ou vous faire livrer.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"> {/* Increased gap between cards */}
             {locations.map((location, index) => (
               <div
                 key={index}
-                className="border border-gray-200 rounded-lg p-6 shadow-md text-center bg-[#FFFFFF]"
+                className="border border-gray-200 rounded-lg p-8 shadow-lg text-center bg-[#FFFFFF]" // Increased padding and shadow
               >
-                <h3 className="text-xl font-bold mb-4 text-[#D62828]">{location.name}</h3>
-                <p className="text-gray-700 mb-2">{location.address}</p>
-                <p className="text-gray-700 mb-4">
+                <h3 className="text-2xl font-bold mb-6 text-[#D62828]">{location.name}</h3>
+                <p className="text-gray-700 mb-4 text-lg">{location.address}</p>
+                <p className="text-gray-700 mb-6 text-lg">
                   <strong>Téléphone :</strong> {location.phone}
                 </p>
                 <a
-                  href={location.orderLink} // Redirects to the corresponding location
-                  className="inline-block px-6 py-2 bg-[#D62828] text-white font-bold rounded hover:bg-[#EEAF20] transition"
+                  href={location.orderLink}
+                  className="inline-block px-8 py-3 bg-[#D62828] text-white font-bold rounded hover:bg-[#EEAF20] transition"
                   style={{
-                    backgroundImage: 'url(/images/button-bg.jpg)', // Optional background image
+                    backgroundImage: 'url(/images/button-bg.jpg)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}
@@ -90,8 +91,8 @@ const HomePage = () => {
 
       {/* Petite Section Héros */}
       <section
-        className="relative bg-cover bg-center h-64 flex items-center justify-center"
-        style={{ backgroundImage: "url('/images/restaurant-interior.jpg')" }}
+        className="relative bg-cover bg-center h-[40rem] flex items-center justify-center" // Increased height to 40rem
+        style={{ backgroundImage: `url(${heroImage2})` }} // Use imported image
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative z-10 text-center text-white">
