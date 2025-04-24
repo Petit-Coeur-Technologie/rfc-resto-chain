@@ -6,7 +6,8 @@ import MenuPage from '../pages/MenuPage';
 import Kobayah from '../pages/location/Kobayah';
 import Kipe from '../pages/location/Kipe';
 import Nongo from '../pages/location/Nongo';
-
+import Tombolia from '../pages/location/Tombolia';
+import Kaloum from '../pages/location/Kaloum';
 
 const AppRoutes = () => {
   return (
@@ -17,6 +18,8 @@ const AppRoutes = () => {
         <Route path="/location/kobayah" element={<Kobayah />} />
         <Route path="/location/kipe" element={<Kipe />} />
         <Route path="/location/nongo" element={<Nongo />} />
+        <Route path="/location/tombolia" element={<Tombolia />} />
+        <Route path="/location/kaloum" element={<Kaloum />} />
       </Routes>
     </Router>
   );
