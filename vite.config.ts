@@ -10,5 +10,6 @@ export default defineConfig({
   server: {
     host: '0.0.0.0', // Écoute sur toutes les adresses IP
     port: 5172, // Utilise le port de Render ou un port par défaut
+    allowedHosts: ['rfc-resto-chain.onrender.com'] // Add this line to allow your Render domain
   },
 })
