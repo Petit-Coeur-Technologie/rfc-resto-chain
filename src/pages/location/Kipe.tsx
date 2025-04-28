@@ -3,8 +3,12 @@ import Layout from '../../components/Layout';
 // Replace Heroicons with React Icons
 import { FaUtensils, FaTruck } from 'react-icons/fa';
 import { MdTakeoutDining } from 'react-icons/md';
+import { useGloriaFood } from '../../hooks/useGloriaFood';
 
 const Kipe = () => {
+  // Add the GloriaFood hook to bind the button
+  useGloriaFood();
+
   return (
     <Layout>
       {/* Hero Section */}

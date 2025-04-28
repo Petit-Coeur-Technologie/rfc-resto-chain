@@ -1,7 +1,38 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Layout from '../components/Layout';
+import { useGloriaFood } from '../hooks/useGloriaFood';
 
 const MenuPage = () => {
+  // Use GloriaFood for online ordering
+  useGloriaFood();
+  
+  // State for active category
+  const [activeCategory, setActiveCategory] = useState('PERI PERI & BURGERS');
+  
+  // Refs for category sections
+  const categoryRefs = useRef({});
+  
+  // Category emojis mapping
+  const categoryEmojis = {
+    'PERI PERI & BURGERS': '🍔',
+    'MENU CLASSIQUE POULET': '🍗',
+    'MENU COMBO': '🍱',
+    'MENU MILKSHAKES': '🥤',
+    'MENU PIZZA': '🍕',
+    'BOISSON': '🥂',
+    'MENU GAUFRES': '🧇'
+  };
+  
+  // Handle scroll to category
+  const scrollToCategory = (category) => {
+    setActiveCategory(category);
+    categoryRefs.current[category]?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest'
+    });
+  };
+
   const menuItems = [
     {
       category: 'PERI PERI & BURGERS',
@@ -346,27 +377,102 @@ const MenuPage = () => {
       ],
     },
   ];
+  
+  // Detect active category on scroll
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveCategory(entry.target.getAttribute('data-category'));
+        }
+      });
+    }, { threshold: 0.2, rootMargin: '-80px 0px -300px 0px' });
+    
+    // Observe all category sections
+    Object.values(categoryRefs.current).forEach(ref => {
+      if (ref) observer.observe(ref);
+    });
+    
+    return () => {
+      Object.values(categoryRefs.current).forEach(ref => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
 
   return (
     <Layout>
-      <div className="pt-20 py-12 bg-gray-100"> {/* Added pt-16 for top padding */}
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-8 text-[#D62828]">Notre Menu</h1>
-          {menuItems.map((category, index) => (
-            <div key={index} className="mb-12">
-              <h2 className="text-2xl font-bold mb-4 text-[#D62828]">{category.category}</h2>
-              {category.description && (
-                <p className="text-gray-600 mb-6 max-w-3xl mx-auto">{category.description}</p>
-              )}
-              <ul className="space-y-6">
+      {/* Simple header with white background and red text */}
+      <section className="bg-white py-10">
+        <div className="container mx-auto px-4">
+          <h1 className="text-3xl mt-10 font-bold text-center text-[#D62828]">Notre Menu</h1>
+        </div>
+      </section>
+      
+      {/* Improved category navigation for mobile */}
+      <div className="sticky top-16 z-20 bg-white shadow-sm py-4">
+        <div className="container mx-auto px-1"> {/* Reduced horizontal padding */}
+          <div className="flex overflow-x-auto hide-scrollbar gap-2">
+            {menuItems.map((category) => (
+              <div
+                key={category.category}
+                onClick={() => scrollToCategory(category.category)}
+                className={`cursor-pointer px-3 py-2 rounded-lg text-sm font-medium flex items-center flex-shrink-0 ${
+                  activeCategory === category.category
+                    ? 'bg-[#D62828] text-white'
+                    : 'bg-gray-100 hover:bg-gray-200'
+                }`}
+              >
+                <span className="mr-2">{categoryEmojis[category.category]}</span>
+                {category.category}
+              </div>
+            ))}
+          </div>
+          
+          {/* Scroll indicator for mobile */}
+          <div className="flex justify-center mt-2 md:hidden">
+            <div className="w-16 h-1 bg-gray-200 rounded-full"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Simplified menu content */}
+      <div className="py-8 bg-gray-50">
+        <div className="container mx-auto px-4">
+          {menuItems.map((category) => (
+            <div 
+              key={category.category}
+              ref={el => categoryRefs.current[category.category] = el}
+              data-category={category.category}
+              className="mb-12 scroll-mt-32"
+            >
+              <div className="text-center mb-6">
+                <h2 className="text-2xl font-bold text-[#D62828] flex items-center justify-center">
+                  <span className="mr-2">{categoryEmojis[category.category]}</span>
+                  {category.category}
+                </h2>
+                
+                {category.description && (
+                  <p className="text-sm text-gray-600 max-w-2xl mx-auto mt-2">{category.description}</p>
+                )}
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {category.items.map((item, idx) => (
-                  <li key={idx} className="text-left mx-auto max-w-2xl">
-                    <h3 className="text-lg font-semibold text-gray-800">{item.name}</h3>
-                    <p className="text-gray-600">{item.description}</p>
-                    <p className="text-gray-800 font-bold">{item.price} GNF</p>
-                  </li>
+                  <div 
+                    key={idx}
+                    className="bg-white rounded-lg shadow-sm p-4"
+                  >
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="font-bold text-gray-800">{item.name}</h3>
+                      <span className="font-semibold text-[#D62828] whitespace-nowrap ml-2">
+                        {item.price} GNF
+                      </span>
+                    </div>
+                    <p className="text-sm text-gray-600">{item.description}</p>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>

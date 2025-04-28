@@ -2,8 +2,12 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import { FaUtensils, FaTruck } from 'react-icons/fa';
 import { MdTakeoutDining } from 'react-icons/md';
+import { useGloriaFood } from '../../hooks/useGloriaFood';
 
 const Kobayah = () => {
+  // Add the GloriaFood hook to ensure button functionality
+  useGloriaFood();
+
   return (
     <Layout>
       {/* Hero Section */}

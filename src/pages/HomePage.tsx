@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react'; // Add useEffect import
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import HeroSection from '../components/HeroSection';
@@ -13,8 +13,12 @@ import {
 } from 'react-icons/fa';
 import { MdTakeoutDining } from 'react-icons/md';
 import AnimatedElement from '../components/AnimatedElement';
+import { useGloriaFood } from '../hooks/useGloriaFood';
 
 const HomePage = () => {
+  // Use the hook to handle GloriaFood integration
+  useGloriaFood();
+
   const featuredMenu = [
     {
       name: 'Pizza Margherita',
@@ -42,32 +46,59 @@ const HomePage = () => {
       address: '123 Rue Kobayah, Conakry, Guinée',
       phone: '(224) 622-123-456',
       orderLink: '/location/kobayah',
+      glf: {
+        cuid: '561941df-3039-448e-a17b-04a33468a324',
+        ruid: '207b0721-e963-41ff-a9b3-c4eda4fb5b2b'
+      }
     },
     {
       name: 'RFC KIPÉ',
       address: '456 Avenue Kipé, Conakry, Guinée',
       phone: '(224) 622-654-321',
       orderLink: '/location/kipe',
+      glf: {
+        cuid: '561941df-3039-448e-a17b-04a33468a324',
+        ruid: '1a432878-2146-4f62-ae65-2c8afd047015'
+      }
     },
     {
       name: 'RFC NONGO',
       address: '789 Route Nongo, Conakry, Guinée',
       phone: '(224) 622-987-654',
       orderLink: '/location/nongo',
+      glf: {
+        cuid: '561941df-3039-448e-a17b-04a33468a324',
+        ruid: '0159cb6f-8a4a-4045-94ef-677c12d1687d'
+      }
     },
     {
       name: 'RFC TOMBOLIA',
       address: '321 Boulevard Tombolia, Conakry, Guinée',
       phone: '(224) 622-111-222',
       orderLink: '/location/tombolia',
+      glf: {
+        cuid: '561941df-3039-448e-a17b-04a33468a324',
+        ruid: 'f897fe48-81a3-4f6f-9a6f-18294448e3d0'
+      }
     },
     {
       name: 'RFC KALOUM',
       address: '567 Avenue Kaloum, Conakry, Guinée',
       phone: '(224) 622-333-444',
       orderLink: '/location/kaloum',
+      glf: {
+        cuid: '561941df-3039-448e-a17b-04a33468a324',
+        ruid: '9751a3b2-7e61-4fe3-8817-3adb4cd58b1e'
+      }
     },
   ];
+
+  useEffect(() => {
+    // Initialize GloriaFood buttons when component mounts or updates
+    if (window.glfBindButtons) {
+      window.glfBindButtons();
+    }
+  }, []); // Empty dependency array means this runs once on mount
 
   return (
     <Layout>
@@ -121,20 +152,17 @@ const HomePage = () => {
                   </div>
                   
                   <div className="text-center mt-auto">
-                    <Link 
-                      to={location.orderLink}
-                      className="inline-flex items-center justify-center w-full px-8 py-3 bg-[#EEAF20] text-white font-bold rounded-lg transform transition-all duration-300 hover:bg-[#D62828] hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#EEAF20] focus:ring-offset-2"
+                    <span 
+                      className="glf-button inline-block px-6 py-2 bg-[#EEAF20] text-white font-medium text-sm rounded-full transform transition-all duration-300 hover:bg-[#D62828] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#EEAF20] focus:ring-offset-2 cursor-pointer"
+                      data-glf-cuid={location.glf.cuid}
+                      data-glf-ruid={location.glf.ruid}
                       style={{
-                        backgroundImage: 'url(/images/button-bg.jpg)',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
+                        backgroundImage: 'linear-gradient(45deg, #EEAF20, #F3BD42)',
+                        boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
                       }}
                     >
-                      <span className="mr-2">Voir le MENU & Commander</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                      </svg>
-                    </Link>
+                      Voir le MENU & Commander
+                    </span>
                   </div>
                 </div>
                 
@@ -207,29 +235,21 @@ const HomePage = () => {
       {/* Section À Propos */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-6 text-[#D62828]">À Propos de Nous</h2>
-          <div className="w-20 h-2 bg-[#EEAF20] mx-auto mb-12 rounded"></div>
           
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Left column with image */}
-              <div className="relative">
-                <div className="rounded-lg overflow-hidden shadow-xl">
-                  <img 
-                    src="../assets/images/logo.jpeg" 
-                    alt="" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute -bottom-6 -right-6 bg-[#EEAF20] rounded-lg p-6 shadow-lg hidden md:block">
-                  <p className="text-white font-bold text-xl italic">
+          <div className="max-w-4xl mx-auto">
+            {/* Single column layout */}
+            <div className="flex flex-col items-center">
+              {/* Centered quote */}
+              <div className="mb-16 w-full flex justify-center">
+                <div className="bg-[#EEAF20] rounded-lg p-6 shadow-lg max-w-md mx-auto">
+                  <p className="text-white font-bold text-xl italic text-center">
                     "Le plaisir est au cœur de chaque bouchée"
                   </p>
                 </div>
               </div>
               
-              {/* Right column with text */}
-              <div className="bg-white rounded-lg shadow-xl p-8 relative">
+              {/* Text content */}
+              <div className="bg-white rounded-lg shadow-xl p-8 relative w-full">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-[#D62828]/5 rounded-full -mt-8 -mr-8 z-0"></div>
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#EEAF20]/5 rounded-full -mb-10 -ml-10 z-0"></div>
                 
@@ -244,7 +264,7 @@ const HomePage = () => {
                   </p>
 
                   <p className="font-semibold text-lg mb-4 text-[#D62828]">Au menu :</p>
-                  <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div className="flex items-center bg-[#D62828]/5 p-3 rounded-lg">
                       <div className="w-10 h-10 mr-3 bg-[#EEAF20] rounded-full flex items-center justify-center text-white text-lg">
                         🍗

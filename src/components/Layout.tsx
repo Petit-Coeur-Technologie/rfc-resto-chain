@@ -14,6 +14,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     // Smooth scroll behavior for the entire site
     document.documentElement.style.scrollBehavior = 'smooth';
     
+    // Add GloriaFood script if it doesn't already exist
+    if (!document.getElementById('gloria-food-script')) {
+      const script = document.createElement('script');
+      script.src = "https://www.fbgcdn.com/embedder/js/ewm2.js";
+      script.id = "gloria-food-script";
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+    }
+    
     return () => {
       document.documentElement.style.scrollBehavior = 'auto';
     };

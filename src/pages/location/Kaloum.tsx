@@ -1,24 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Layout from '../../components/Layout';
-// Replace Heroicons with React Icons
 import { FaUtensils, FaTruck } from 'react-icons/fa';
 import { MdTakeoutDining } from 'react-icons/md';
+import { useGloriaFood } from '../../hooks/useGloriaFood';
 
 const Kaloum = () => {
-  // Add Gloria Food script
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "https://www.fbgcdn.com/embedder/js/ewm2.js";
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-    
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
+  useGloriaFood();
 
   return (
     <Layout>
