@@ -14,18 +14,31 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black bg-opacity-50 animate-fade-in"></div>
       <div className="relative z-10 text-center text-white">
         <h1 className="text-5xl font-bold mb-4 text-white opacity-0 animate-slide-up" style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}>
-          Savourez l'Expérience RFC
+          RFC – Toujours plus proche, toujours plus savoureux !
         </h1>
         <p className="text-lg mb-8 opacity-0 animate-slide-up" style={{ animationDelay: '600ms', animationFillMode: 'forwards' }}>
-          Découvrez les meilleurs plats préparés avec amour et des ingrédients frais.
+          Découvrez le vrai goût du poulet frit, des burgers juteux, des gaufres moelleuses et bien plus encore.
+          Commandez en ligne ou visitez l'un de nos restaurants près de chez vous !
         </p>
-        <a
-          href="menu"
-          className="px-6 py-3 bg-[#EEAF20] text-white font-bold rounded hover:bg-[#D62828] transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg opacity-0 animate-slide-up"
-          style={{ animationDelay: '900ms', animationFillMode: 'forwards' }}
-        >
-          Explorer notre menu
-        </a>
+        
+        {/* Button Container */}
+        <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4 opacity-0 animate-slide-up" style={{ animationDelay: '750ms', animationFillMode: 'forwards' }}>
+          {/* New "Commander Maintenant" Button - now with matching yellow color */}
+          <a
+            href="#locations"
+            className="px-6 py-3 bg-[#EEAF20] text-white font-bold rounded hover:bg-[#D62828] transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
+          >
+            Commander Maintenant
+          </a>
+          
+          {/* Existing "Explorer notre menu" Button */}
+          <a
+            href="menu"
+            className="px-6 py-3 bg-[#EEAF20] text-white font-bold rounded hover:bg-[#D62828] transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
+          >
+            Explorer notre menu
+          </a>
+        </div>
       </div>
       
       {/* Animated decorative elements */}

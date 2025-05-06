@@ -406,6 +406,12 @@ const MenuPage = () => {
       <section className="bg-white py-10">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl mt-10 font-bold text-center text-[#D62828]">Notre Menu</h1>
+          
+          {/* Introduction text */}
+          <p className="text-center text-gray-700 mt-4 mb-6 max-w-2xl mx-auto">
+            Découvrez notre menu varié : du poulet frit croustillant aux burgers, pizzas, gaufres et milkshakes.
+            Un seul mot d'ordre chez RFC : plaisir gourmand garanti !
+          </p>
         </div>
       </section>
       
