@@ -19,6 +19,29 @@ const HomePage = () => {
   // Use the hook to handle GloriaFood integration
   useGloriaFood();
 
+  useEffect(() => {
+    // Handle scrolling to different sections after navigation
+    const sections = ['locations', 'contact'];
+    
+    sections.forEach(section => {
+      const capitalizedSection = section.charAt(0).toUpperCase() + section.slice(1);
+      const scrollFlag = sessionStorage.getItem(`scrollTo${capitalizedSection}`);
+      
+      if (scrollFlag === 'true') {
+        // Clear the flag
+        sessionStorage.removeItem(`scrollTo${capitalizedSection}`);
+        
+        // Wait for page to render properly
+        setTimeout(() => {
+          const targetElement = document.getElementById(section);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 500); // Short delay to ensure DOM is ready
+      }
+    });
+  }, []); // Run once on mount
+
   const featuredMenu = [
     {
       name: 'Pizza Margherita',
@@ -346,7 +369,7 @@ const HomePage = () => {
       </section>
 
       {/* Section Réseaux Sociaux */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+      <section id="contact" className="py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-4xl font-bold text-center mb-6 text-[#D62828]">Réseaux Sociaux</h2>
           <div className="w-20 h-2 bg-[#EEAF20] mx-auto mb-2 rounded"></div>

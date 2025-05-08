@@ -11,6 +11,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const { pathname } = useLocation();
   const mainRef = useRef<HTMLDivElement>(null);
+  const isInitialMount = useRef(true);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -32,27 +33,64 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     };
   }, []);
 
-  // Enhanced scroll to top on page change
+  // Handle both page changes AND page refreshes
   useEffect(() => {
-    // Force immediate scroll to top
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'auto' // Use 'auto' instead of 'smooth' for immediate effect
-    });
+    // On first mount (including page refreshes), scroll to top
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      
+      // Use setTimeout to ensure this happens after the browser's attempt to restore scroll position
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'auto' // Immediate scrolling, not smooth
+        });
+      }, 0);
+    } else if (pathname) {
+      // For navigation changes, scroll to top
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'auto'
+      });
+    }
     
-    // If main content element is available, also reset its scroll position
+    // Reset any scrollable elements
     if (mainRef.current) {
       mainRef.current.scrollTop = 0;
     }
     
-    // Reset any scrollable elements that might retain scroll position
     document.querySelectorAll('.scrollable').forEach((el) => {
       if (el instanceof HTMLElement) {
         el.scrollTop = 0;
       }
     });
-  }, [pathname]); // This runs whenever the URL path changes
+  }, [pathname]);
+
+  // Add specific handler for page refresh
+  useEffect(() => {
+    // This runs when the page is about to be unloaded (refresh or closing)
+    const handleBeforeUnload = () => {
+      // Store a flag in session storage that we're refreshing
+      sessionStorage.setItem('pageIsRefreshing', 'true');
+    };
+    
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    
+    // Check if we're coming from a refresh
+    const isRefreshing = sessionStorage.getItem('pageIsRefreshing') === 'true';
+    if (isRefreshing) {
+      // Clear the flag
+      sessionStorage.removeItem('pageIsRefreshing');
+      // Force scroll to top
+      window.scrollTo(0, 0);
+    }
+    
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">

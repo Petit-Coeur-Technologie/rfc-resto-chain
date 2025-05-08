@@ -1,19 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
-  // Add smooth scroll handler function
-  const smoothScrollToSection = (e) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+  // Enhanced click handler for section navigation
+  const handleSectionNavigation = (e, sectionId) => {
     e.preventDefault();
-    const targetId = e.currentTarget.getAttribute('href').substring(1);
-    const targetElement = document.getElementById(targetId);
     
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop,
-        behavior: 'smooth'
-      });
+    // If already on homepage, just scroll to section
+    if (location.pathname === '/') {
+      const targetElement = document.getElementById(sectionId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // If on another page, navigate to homepage with section flag
+      sessionStorage.setItem(`scrollTo${sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}`, 'true');
+      navigate('/');
     }
   };
 
@@ -28,17 +37,33 @@ const Footer = () => {
         
         {/* Quick links */}
         <div className="flex justify-center flex-wrap gap-x-6 mb-6">
-          <Link to="/" className="text-gray-300 hover:text-white">Accueil</Link>
-          <Link to="/menu" className="text-gray-300 hover:text-white">Menu</Link>
-          <Link to="/#locations" className="text-gray-300 hover:text-white">Restaurants</Link>
+          <Link to="/" className="text-gray-300 hover:text-white">
+            Accueil
+          </Link>
+          <Link to="/menu" className="text-gray-300 hover:text-white">
+            Menu
+          </Link>
           <a 
             href="#locations" 
-            onClick={smoothScrollToSection} 
+            onClick={(e) => handleSectionNavigation(e, 'locations')}
+            className="text-gray-300 hover:text-white"
+          >
+            Restaurants
+          </a>
+          <a 
+            href="#locations" 
+            onClick={(e) => handleSectionNavigation(e, 'locations')}
             className="text-gray-300 hover:text-white"
           >
             Commander
           </a>
-          <Link to="/#contact" className="text-gray-300 hover:text-white">Contact</Link>
+          <a 
+            href="#contact" 
+            onClick={(e) => handleSectionNavigation(e, 'contact')}
+            className="text-gray-300 hover:text-white"
+          >
+            Contact
+          </a>
         </div>
         
         {/* Social media icons */}
@@ -49,7 +74,7 @@ const Footer = () => {
           <a href="https://www.facebook.com/romafriedchiken" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
             <FaFacebook size={24} />
           </a>
-          <a href="https://wa.me/224622123456" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
+          <a href="https://wa.me/224620127142" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
             <FaWhatsapp size={24} />
           </a>
         </div>
