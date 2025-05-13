@@ -66,7 +66,7 @@ const HomePage = () => {
   const locations = [
     {
       name: 'RFC KOBAYAH',
-      address: '123 Rue Kobayah, Conakry, Guinée',
+      address: 'Carrefour kobaya en face du marché, Conakry, Guinée',
       phone: '620 12 71 42',
       orderLink: '/location/kobayah',
       glf: {
@@ -76,7 +76,7 @@ const HomePage = () => {
     },
     {
       name: 'RFC KIPÉ',
-      address: '456 Avenue Kipé, Conakry, Guinée',
+      address: 'T2 Kipe, Conakry, Guinée',
       phone: '628 61 41 91',
       orderLink: '/location/kipe',
       glf: {
@@ -86,7 +86,7 @@ const HomePage = () => {
     },
     {
       name: 'RFC NONGO',
-      address: '789 Route Nongo, Conakry, Guinée',
+      address: 'Star, Nongo Taady carefour Diawara en face de la station, Conakry, Guinée',
       phone: '610 04 13 03',
       orderLink: '/location/nongo',
       glf: {
@@ -96,7 +96,7 @@ const HomePage = () => {
     },
     {
       name: 'RFC TOMBOLIA',
-      address: '321 Boulevard Tombolia, Conakry, Guinée',
+      address: 'Tombolia dans la cour du cinéma, Conakry, Guinée',
       phone: '627 50 73 47',
       orderLink: '/location/tombolia',
       glf: {
