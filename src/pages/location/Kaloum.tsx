@@ -1,18 +1,201 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '../../components/Layout';
-import { FaUtensils, FaTruck } from 'react-icons/fa';
+import { FaUtensils, FaTruck, FaExpandAlt, FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
 import { MdTakeoutDining } from 'react-icons/md';
 import { useGloriaFood } from '../../hooks/useGloriaFood';
 
 const Kaloum = () => {
   useGloriaFood();
+  const [activeImageIndex, setActiveImageIndex] = useState(null);
+  
+  // Add pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const imagesPerPage = 6; // Show 6 images per page
+
+  // Gallery images array with all 19 images
+  const galleryImages = [
+    {
+      src: '/src/public/image/Kaloum/kaloum 1.jpeg',
+      alt: 'Restaurant RFC Kaloum',
+      caption: 'Vue du restaurant'
+    },
+    {
+      src: '/src/public/image/Kaloum/kaloum 2.jpeg',
+      alt: 'Plat signature de RFC Kaloum',
+      caption: 'Notre délicieux poulet frit'
+    },
+    {
+      src: '/src/public/image/Kaloum/kaloum 3.jpeg',
+      alt: 'Intérieur du restaurant',
+      caption: 'Espace de restauration'
+    },
+    {
+      src: '/src/public/image/Kaloum/kaloum 4.jpeg',
+      alt: 'Menu spécial de RFC',
+      caption: 'Nos spécialités'
+    },
+    {
+      src: '/src/public/image/Kaloum/kaloum 5.jpeg',
+      alt: 'Service client à RFC Kaloum',
+      caption: 'Service rapide et attentionné'
+    },
+    {
+      src: '/src/public/image/Kaloum/kaloum 6.jpeg',
+      alt: 'Plats populaires de RFC',
+      caption: 'Nos plats favoris'
+    },
+    {
+      src: '/src/public/image/Kaloum/kaloum 7.jpeg',
+      alt: 'Assortiment de poulet frit',
+      caption: 'Nos différentes recettes de poulet'
+    },
+    {
+      src: '/src/public/image/Kaloum/kaloum 8.jpeg',
+      alt: 'Ambiance du restaurant',
+      caption: 'L\'atmosphère conviviale de RFC Kaloum'
+    },
+    {
+      src: '/src/public/image/Kaloum/kaloum 9.jpeg',
+      alt: 'Équipe de service',
+      caption: 'Notre équipe à votre service'
+    },
+    {
+      src: '/src/public/image/Kaloum/kaloum 10.jpeg',
+      alt: 'Plat spécial weekend',
+      caption: 'Notre offre spéciale du weekend'
+    },
+    {
+      src: '/src/public/image/Kaloum/kaloum 11.jpeg',
+      alt: 'Espace terrasse',
+      caption: 'Notre terrasse extérieure'
+    },
+    {
+      src: '/src/public/image/Kaloum/kaloum 12.jpeg',
+      alt: 'Desserts assortis',
+      caption: 'Sélection de desserts gourmands'
+    },
+    {
+      src: '/src/public/image/Kaloum/kaloum 13.jpeg',
+      alt: 'Vue extérieure du restaurant',
+      caption: 'La façade de RFC Kaloum'
+    },
+    {
+      src: '/src/public/image/Kaloum/kaloum 14.jpeg',
+      alt: 'Menu enfant',
+      caption: 'Options pour les plus jeunes'
+    },
+    {
+      src: '/src/public/image/Kaloum/kaloum 15.jpeg',
+      alt: 'Événement spécial',
+      caption: 'Un de nos événements clients'
+    },
+    {
+      src: '/src/public/image/Kaloum/kaloum 16.jpeg',
+      alt: 'Préparation en cuisine',
+      caption: 'Notre cuisine en action'
+    },
+    {
+      src: '/src/public/image/Kaloum/kaloum 17.jpeg',
+      alt: 'Boissons et cocktails',
+      caption: 'Notre sélection de boissons'
+    },
+    {
+      src: '/src/public/image/Kaloum/kaloum 18.jpeg',
+      alt: 'Plat familial',
+      caption: 'Option pour toute la famille'
+    },
+    {
+      src: '/src/public/image/Kaloum/kaloum 19.jpeg',
+      alt: 'Spécialités locales',
+      caption: 'Nos recettes inspirées des saveurs locales'
+    }
+  ];
+
+  // Calculate which images to display on the current page
+  const indexOfLastImage = currentPage * imagesPerPage;
+  const indexOfFirstImage = indexOfLastImage - imagesPerPage;
+  const currentImages = galleryImages.slice(indexOfFirstImage, indexOfLastImage);
+  
+  // Calculate total pages
+  const totalPages = Math.ceil(galleryImages.length / imagesPerPage);
+
+  const handlePrevious = (e) => {
+    e.stopPropagation();
+    setActiveImageIndex((prevIndex) => 
+      prevIndex === 0 ? galleryImages.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNext = (e) => {
+    e.stopPropagation();
+    setActiveImageIndex((prevIndex) => 
+      prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+  
+  // Update the handlePageChange function with navbar offset
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    // Use setTimeout to ensure DOM update happens before scrolling
+    setTimeout(() => {
+      const firstImageElement = document.getElementById(`gallery-image-${(pageNumber - 1) * imagesPerPage}`);
+      if (firstImageElement) {
+        // Get navbar height (estimate or get dynamically)
+        const navbarHeight = 80; // Adjust this value based on your actual navbar height
+        
+        // Calculate the element's position
+        const elementPosition = firstImageElement.getBoundingClientRect().top + window.pageYOffset;
+        
+        // Scroll with offset to account for navbar
+        window.scrollTo({
+          top: elementPosition - navbarHeight - 20, // Extra 20px for padding
+          behavior: 'smooth'
+        });
+      } else {
+        // Fallback to gallery section if element not found
+        const gallerySection = document.getElementById('gallery-section');
+        if (gallerySection) {
+          const navbarHeight = 80; // Adjust based on your navbar height
+          const sectionPosition = gallerySection.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({
+            top: sectionPosition - navbarHeight - 20,
+            behavior: 'smooth'
+          });
+        }
+      }
+    }, 10);
+  };
+
+  // Use keyboard navigation
+  const handleKeyDown = (e) => {
+    if (activeImageIndex === null) return;
+    
+    if (e.key === 'ArrowLeft') handlePrevious(e);
+    if (e.key === 'ArrowRight') handleNext(e);
+    if (e.key === 'Escape') setActiveImageIndex(null);
+  };
+
+  // Add event listener for keyboard navigation
+  useEffect(() => {
+    if (activeImageIndex !== null) {
+      window.addEventListener('keydown', handleKeyDown);
+      // Prevent scrolling when lightbox is open
+      document.body.style.overflow = 'hidden';
+    }
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      // Re-enable scrolling when lightbox is closed
+      document.body.style.overflow = 'auto';
+    };
+  }, [activeImageIndex]);
 
   return (
     <Layout>
-      {/* Hero Section */}
+      {/* Hero Section - Updated to use kaloum 3.jpeg */}
       <section
         className="relative bg-cover bg-center h-[490px] flex items-center justify-center"
-        style={{ backgroundImage: "url('/images/kaloum-hero.jpg')" }}
+        style={{ backgroundImage: "url('/src/public/image/Kaloum/kaloum 3.jpeg')" }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative z-10 text-center text-white">
@@ -71,11 +254,11 @@ const Kaloum = () => {
               </div>
             </div>
 
-            {/* Row 2: Map and Address */}
+            {/* Row 2: Map and Address - Keep Kaloum's specific coordinates and address */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              {/* Map */}
+              {/* Map - Updated with the Kaloum coordinates */}
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.5379760802856!2d-13.7142183!3d9.536157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMzInMTAuMiJOIDEzwrA0Mic1MS4yIlc!5e0!3m2!1sfr!2sgn!4v1624287954211!5m2!1sfr!2sgn"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.0130957457023!2d-13.706326840923769!3d9.511001027133311!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMzAnMzkuNiJOIDEzwrA0MicyMi44Ilc!5e0!3m2!1sfr!2sgn!4v1624287954211!5m2!1sfr!2sgn"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}
@@ -102,7 +285,7 @@ const Kaloum = () => {
                   data-glf-cuid="561941df-3039-448e-a17b-04a33468a324"
                   data-glf-ruid="0159cb6f-8a4a-4045-94ef-677c12d1687d"
                   style={{
-                    backgroundImage: 'url(/images/button-bg.jpg)',
+                    backgroundImage: 'url(/src/public/image/button-bg.jpg)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}
@@ -115,20 +298,196 @@ const Kaloum = () => {
         </div>
       </div>
 
-      {/* Photo Gallery Section */}
-      <div className="py-12 bg-gray-100">
+      {/* Photo Gallery Section - Mobile Optimized */}
+      <div id="gallery-section" className="py-12 bg-gray-100">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center text-[#D62828]">Galerie Photos</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Placeholder images - replace with actual images once available */}
-            {[1, 2, 3, 4, 5, 6].map((num) => (
-              <div key={num} className="w-full h-64 bg-gray-300 rounded-lg shadow-md flex items-center justify-center">
-                <p className="text-gray-500">Image Galerie {num}</p>
+          
+          {/* Gallery grid - Improved for mobile */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {currentImages.map((image, index) => (
+              <div 
+                key={indexOfFirstImage + index}
+                id={`gallery-image-${indexOfFirstImage + index}`} // Add this ID
+                className="w-full h-56 sm:h-64 rounded-lg shadow-md overflow-hidden relative cursor-pointer active:opacity-90 touch-manipulation"
+                onClick={() => setActiveImageIndex(indexOfFirstImage + index)}
+              >
+                <img 
+                  src={image.src} 
+                  alt={image.alt} 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                {/* Overlay without expand button - just the darkening effect */}
+                <div className="absolute inset-0 bg-black bg-opacity-20 sm:bg-opacity-0 sm:group-hover:bg-opacity-50 flex items-center justify-center transition-opacity">
+                  {/* No button here anymore */}
+                </div>
               </div>
             ))}
           </div>
+          
+          {/* Mobile-optimized Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex justify-center mt-8">
+              <div className="flex flex-wrap justify-center gap-2">
+                {/* Previous page button - Larger tap target */}
+                <button 
+                  onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
+                  disabled={currentPage === 1}
+                  className={`min-w-[44px] h-11 px-3 py-2 rounded-md text-lg ${
+                    currentPage === 1 
+                      ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+                      : 'bg-gray-200 text-gray-700 hover:bg-[#EEAF20] hover:text-white active:bg-[#D62828]'
+                  }`}
+                  aria-label="Page précédente"
+                >
+                  &laquo;
+                </button>
+                
+                {/* Page number buttons - Responsive layout */}
+                {totalPages <= 5 ? (
+                  // Show all pages if 5 or fewer
+                  Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
+                    <button 
+                      key={pageNumber}
+                      onClick={() => handlePageChange(pageNumber)}
+                      className={`min-w-[44px] h-11 px-3 py-2 rounded-md text-lg ${
+                        currentPage === pageNumber 
+                          ? 'bg-[#D62828] text-white' 
+                          : 'bg-gray-200 text-gray-700 hover:bg-[#EEAF20] hover:text-white active:bg-[#D62828]'
+                      }`}
+                      aria-label={`Page ${pageNumber}`}
+                      aria-current={currentPage === pageNumber ? "page" : undefined}
+                    >
+                      {pageNumber}
+                    </button>
+                  ))
+                ) : (
+                  // Show limited pages with ellipsis for better mobile experience
+                  <>
+                    {/* Always show page 1 */}
+                    <button 
+                      onClick={() => handlePageChange(1)}
+                      className={`min-w-[44px] h-11 px-3 py-2 rounded-md text-lg ${
+                        currentPage === 1 ? 'bg-[#D62828] text-white' : 'bg-gray-200 text-gray-700 hover:bg-[#EEAF20] hover:text-white'
+                      }`}
+                      aria-label="Page 1"
+                      aria-current={currentPage === 1 ? "page" : undefined}
+                    >
+                      1
+                    </button>
+                    
+                    {/* Show ellipsis if needed */}
+                    {currentPage > 3 && <span className="flex items-center px-2">...</span>}
+                    
+                    {/* Show current page and neighbors */}
+                    {Array.from(
+                      { length: 3 },
+                      (_, i) => Math.min(Math.max(currentPage - 1 + i, 2), totalPages - 1)
+                    )
+                    .filter((pageNumber, index, array) => array.indexOf(pageNumber) === index) // Remove duplicates
+                    .filter(pageNumber => pageNumber > 1 && pageNumber < totalPages) // Remove first and last
+                    .map(pageNumber => (
+                      <button 
+                        key={pageNumber}
+                        onClick={() => handlePageChange(pageNumber)}
+                        className={`min-w-[44px] h-11 px-3 py-2 rounded-md text-lg ${
+                          currentPage === pageNumber 
+                            ? 'bg-[#D62828] text-white' 
+                            : 'bg-gray-200 text-gray-700 hover:bg-[#EEAF20] hover:text-white'
+                        }`}
+                        aria-label={`Page ${pageNumber}`}
+                        aria-current={currentPage === pageNumber ? "page" : undefined}
+                      >
+                        {pageNumber}
+                      </button>
+                    ))}
+                    
+                    {/* Show ellipsis if needed */}
+                    {currentPage < totalPages - 2 && <span className="flex items-center px-2">...</span>}
+                    
+                    {/* Always show last page */}
+                    <button 
+                      onClick={() => handlePageChange(totalPages)}
+                      className={`min-w-[44px] h-11 px-3 py-2 rounded-md text-lg ${
+                        currentPage === totalPages ? 'bg-[#D62828] text-white' : 'bg-gray-200 text-gray-700 hover:bg-[#EEAF20] hover:text-white'
+                      }`}
+                      aria-label={`Page ${totalPages}`}
+                      aria-current={currentPage === totalPages ? "page" : undefined}
+                    >
+                      {totalPages}
+                    </button>
+                  </>
+                )}
+                
+                {/* Next page button - Larger tap target */}
+                <button 
+                  onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
+                  disabled={currentPage === totalPages}
+                  className={`min-w-[44px] h-11 px-3 py-2 rounded-md text-lg ${
+                    currentPage === totalPages 
+                      ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+                      : 'bg-gray-200 text-gray-700 hover:bg-[#EEAF20] hover:text-white active:bg-[#D62828]'
+                  }`}
+                  aria-label="Page suivante"
+                >
+                  &raquo;
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
+
+      {/* Lightbox Modal - Improved for mobile */}
+      {activeImageIndex !== null && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-2 sm:p-4"
+          onClick={() => setActiveImageIndex(null)}
+        >
+          <div className="relative max-w-4xl max-h-[95vh] w-full">
+            <img 
+              src={galleryImages[activeImageIndex].src} 
+              alt={galleryImages[activeImageIndex].alt} 
+              className="max-w-full max-h-[80vh] mx-auto object-contain rounded-lg"
+            />
+            
+            {/* Mobile-friendly navigation buttons - Larger touch targets */}
+            <button 
+              className="absolute top-[50%] left-2 sm:left-4 transform -translate-y-1/2 text-white bg-black bg-opacity-50 hover:bg-opacity-75 rounded-full w-12 h-12 sm:w-10 sm:h-10 flex items-center justify-center"
+              onClick={handlePrevious}
+              aria-label="Image précédente"
+            >
+              <FaChevronLeft className="text-xl" />
+            </button>
+            
+            <button 
+              className="absolute top-[50%] right-2 sm:right-4 transform -translate-y-1/2 text-white bg-black bg-opacity-50 hover:bg-opacity-75 rounded-full w-12 h-12 sm:w-10 sm:h-10 flex items-center justify-center"
+              onClick={handleNext}
+              aria-label="Image suivante"
+            >
+              <FaChevronRight className="text-xl" />
+            </button>
+            
+            {/* Mobile-friendly close button - Larger and positioned better */}
+            <button 
+              className="absolute top-4 right-4 text-white bg-red-600 hover:bg-red-700 rounded-full w-10 h-10 sm:w-8 sm:h-8 flex items-center justify-center"
+              onClick={(e) => {
+                e.stopPropagation();
+                setActiveImageIndex(null);
+              }}
+              aria-label="Fermer"
+            >
+              <FaTimes className="text-lg" />
+            </button>
+            
+            {/* Image counter - Repositioned for mobile */}
+            <div className="absolute bottom-4 sm:top-4 left-4 text-white bg-black bg-opacity-50 px-3 py-1 rounded-full text-base">
+              {activeImageIndex + 1} / {galleryImages.length}
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 };
