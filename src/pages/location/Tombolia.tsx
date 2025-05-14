@@ -11,21 +11,21 @@ const Tombolia = () => {
   const imagesPerPage = 6;
 
   const galleryImages = [
-    { src: '/src/public/image/Tombolia/tombolia 1.jpeg', alt: 'Restaurant RFC Tombolia', caption: 'Vue du restaurant' },
-    { src: '/src/public/image/Tombolia/tombolia 2.jpeg', alt: 'Plat signature de RFC Tombolia', caption: 'Notre délicieux poulet frit' },
-    { src: '/src/public/image/Tombolia/tombolia 3.jpeg', alt: 'Intérieur du restaurant', caption: 'Espace de restauration' },
-    { src: '/src/public/image/Tombolia/tombolia 4.jpeg', alt: 'Menu spécial de RFC', caption: 'Nos spécialités' },
-    { src: '/src/public/image/Tombolia/tombolia 5.jpeg', alt: 'Service client à RFC Tombolia', caption: 'Service rapide et attentionné' },
-    { src: '/src/public/image/Tombolia/tombolia 6.jpeg', alt: 'Plats populaires de RFC', caption: 'Nos plats favoris' },
-    { src: '/src/public/image/Tombolia/tombolia 7.jpeg', alt: 'Assortiment de poulet frit', caption: 'Nos différentes recettes de poulet' },
-    { src: '/src/public/image/Tombolia/tombolia 8.jpeg', alt: 'Ambiance du restaurant', caption: 'L\'atmosphère conviviale de RFC Tombolia' },
-    { src: '/src/public/image/Tombolia/tombolia 9.jpeg', alt: 'Équipe de service', caption: 'Notre équipe à votre service' },
-    { src: '/src/public/image/Tombolia/tombolia 10.jpeg', alt: 'Plat spécial weekend', caption: 'Notre offre spéciale du weekend' },
-    { src: '/src/public/image/Tombolia/tombolia 11.jpeg', alt: 'Espace terrasse', caption: 'Notre terrasse extérieure' },
-    { src: '/src/public/image/Tombolia/tombolia 12.jpeg', alt: 'Desserts assortis', caption: 'Sélection de desserts gourmands' },
-    { src: '/src/public/image/Tombolia/tombolia 13.jpeg', alt: 'Vue extérieure du restaurant', caption: 'La façade de RFC Tombolia' },
-    { src: '/src/public/image/Tombolia/tombolia 14.jpeg', alt: 'Menu enfant', caption: 'Options pour les plus jeunes' },
-    { src: '/src/public/image/Tombolia/tombolia 15.jpeg', alt: 'Événement spécial', caption: 'Un de nos événements clients' }
+    { src: '/image/Tombolia/tombolia 1.jpeg', alt: 'Restaurant RFC Tombolia', caption: 'Vue du restaurant' },
+    { src: '/image/Tombolia/tombolia 2.jpeg', alt: 'Plat signature de RFC Tombolia', caption: 'Notre délicieux poulet frit' },
+    { src: '/image/Tombolia/tombolia 3.jpeg', alt: 'Intérieur du restaurant', caption: 'Espace de restauration' },
+    { src: '/image/Tombolia/tombolia 4.jpeg', alt: 'Menu spécial de RFC', caption: 'Nos spécialités' },
+    { src: '/image/Tombolia/tombolia 5.jpeg', alt: 'Service client à RFC Tombolia', caption: 'Service rapide et attentionné' },
+    { src: '/image/Tombolia/tombolia 6.jpeg', alt: 'Plats populaires de RFC', caption: 'Nos plats favoris' },
+    { src: '/image/Tombolia/tombolia 7.jpeg', alt: 'Assortiment de poulet frit', caption: 'Nos différentes recettes de poulet' },
+    { src: '/image/Tombolia/tombolia 8.jpeg', alt: 'Ambiance du restaurant', caption: 'L\'atmosphère conviviale de RFC Tombolia' },
+    { src: '/image/Tombolia/tombolia 9.jpeg', alt: 'Équipe de service', caption: 'Notre équipe à votre service' },
+    { src: '/image/Tombolia/tombolia 10.jpeg', alt: 'Plat spécial weekend', caption: 'Notre offre spéciale du weekend' },
+    { src: '/image/Tombolia/tombolia 11.jpeg', alt: 'Espace terrasse', caption: 'Notre terrasse extérieure' },
+    { src: '/image/Tombolia/tombolia 12.jpeg', alt: 'Desserts assortis', caption: 'Sélection de desserts gourmands' },
+    { src: '/image/Tombolia/tombolia 13.jpeg', alt: 'Vue extérieure du restaurant', caption: 'La façade de RFC Tombolia' },
+    { src: '/image/Tombolia/tombolia 14.jpeg', alt: 'Menu enfant', caption: 'Options pour les plus jeunes' },
+    { src: '/image/Tombolia/tombolia 15.jpeg', alt: 'Événement spécial', caption: 'Un de nos événements clients' }
   ];
 
   const indexOfLastImage = currentPage * imagesPerPage;
@@ -102,7 +102,7 @@ const Tombolia = () => {
     <Layout>
       <section
         className="relative bg-cover bg-center h-[490px] flex items-center justify-center"
-        style={{ backgroundImage: "url('/src/public/image/Tombolia/tombolia 2.jpeg')" }}
+        style={{ backgroundImage: "url('/image/Tombolia/tombolia 2.jpeg')" }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative z-10 text-center text-white">
@@ -182,7 +182,7 @@ const Tombolia = () => {
                   data-glf-cuid="561941df-3039-448e-a17b-04a33468a324"
                   data-glf-ruid="f897fe48-81a3-4f6f-9a6f-18294448e3d0"
                   style={{
-                    backgroundImage: 'url(/src/public/image/button-bg.jpg)',
+                    backgroundImage: 'url(/image/button-bg.jpg)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}

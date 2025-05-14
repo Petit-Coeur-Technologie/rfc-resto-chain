@@ -11,17 +11,17 @@ const Nongo = () => {
   const imagesPerPage = 6;
 
   const galleryImages = [
-    { src: '/src/public/image/Nongo/nongo 1.jpeg', alt: 'Restaurant RFC Nongo', caption: 'Vue du restaurant' },
-    { src: '/src/public/image/Nongo/nongo 2.jpeg', alt: 'Plat signature de RFC Nongo', caption: 'Notre délicieux poulet frit' },
-    { src: '/src/public/image/Nongo/nongo 3.jpeg', alt: 'Intérieur du restaurant', caption: 'Espace de restauration' },
-    { src: '/src/public/image/Nongo/nongo 4.jpeg', alt: 'Menu spécial de RFC', caption: 'Nos spécialités' },
-    { src: '/src/public/image/Nongo/nongo 5.jpeg', alt: 'Service client à RFC Nongo', caption: 'Service rapide et attentionné' },
-    { src: '/src/public/image/Nongo/nongo 6.jpeg', alt: 'Plats populaires de RFC', caption: 'Nos plats favoris' },
-    { src: '/src/public/image/Nongo/nongo 7.jpeg', alt: 'Assortiment de poulet frit', caption: 'Nos différentes recettes de poulet' },
-    { src: '/src/public/image/Nongo/nongo 8.jpeg', alt: 'Ambiance du restaurant', caption: 'L\'atmosphère conviviale de RFC Nongo' },
-    { src: '/src/public/image/Nongo/nongo 9.jpeg', alt: 'Équipe de service', caption: 'Notre équipe à votre service' },
-    { src: '/src/public/image/Nongo/nongo 10.jpeg', alt: 'Plat spécial weekend', caption: 'Notre offre spéciale du weekend' },
-    { src: '/src/public/image/Nongo/nongo 11.jpeg', alt: 'Espace terrasse', caption: 'Notre terrasse extérieure' }
+    { src: '/image/Nongo/nongo 1.jpeg', alt: 'Restaurant RFC Nongo', caption: 'Vue du restaurant' },
+    { src: '/image/Nongo/nongo 2.jpeg', alt: 'Plat signature de RFC Nongo', caption: 'Notre délicieux poulet frit' },
+    { src: '/image/Nongo/nongo 3.jpeg', alt: 'Intérieur du restaurant', caption: 'Espace de restauration' },
+    { src: '/image/Nongo/nongo 4.jpeg', alt: 'Menu spécial de RFC', caption: 'Nos spécialités' },
+    { src: '/image/Nongo/nongo 5.jpeg', alt: 'Service client à RFC Nongo', caption: 'Service rapide et attentionné' },
+    { src: '/image/Nongo/nongo 6.jpeg', alt: 'Plats populaires de RFC', caption: 'Nos plats favoris' },
+    { src: '/image/Nongo/nongo 7.jpeg', alt: 'Assortiment de poulet frit', caption: 'Nos différentes recettes de poulet' },
+    { src: '/image/Nongo/nongo 8.jpeg', alt: 'Ambiance du restaurant', caption: 'L\'atmosphère conviviale de RFC Nongo' },
+    { src: '/image/Nongo/nongo 9.jpeg', alt: 'Équipe de service', caption: 'Notre équipe à votre service' },
+    { src: '/image/Nongo/nongo 10.jpeg', alt: 'Plat spécial weekend', caption: 'Notre offre spéciale du weekend' },
+    { src: '/image/Nongo/nongo 11.jpeg', alt: 'Espace terrasse', caption: 'Notre terrasse extérieure' }
   ];
 
   const indexOfLastImage = currentPage * imagesPerPage;
@@ -98,7 +98,7 @@ const Nongo = () => {
     <Layout>
       <section
         className="relative bg-cover bg-center h-[490px] flex items-center justify-center"
-        style={{ backgroundImage: "url('/src/public/image/Nongo/nongo 3.jpeg')" }}
+        style={{ backgroundImage: "url('/image/Nongo/nongo 3.jpeg')" }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative z-10 text-center text-white">
@@ -172,7 +172,7 @@ const Nongo = () => {
                   data-glf-cuid="561941df-3039-448e-a17b-04a33468a324"
                   data-glf-ruid="ef6ab8f2-c6b0-41cf-94c1-6ab79a267bdc"
                   style={{
-                    backgroundImage: 'url(/src/public/image/button-bg.jpg)',
+                    backgroundImage: 'url(/image/button-bg.jpg)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}

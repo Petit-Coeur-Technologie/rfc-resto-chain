@@ -13,31 +13,31 @@ const Kobayah = () => {
 
   // Gallery images array with all 25 images
   const galleryImages = [
-    { src: '/src/public/image/Kobayah/kobayah 1.jpeg', alt: 'Restaurant RFC Kobayah', caption: 'Vue du restaurant' },
-    { src: '/src/public/image/Kobayah/kobayah 2.jpeg', alt: 'Plat signature de RFC Kobayah', caption: 'Notre délicieux poulet frit' },
-    { src: '/src/public/image/Kobayah/kobayah 3.jpeg', alt: 'Intérieur du restaurant', caption: 'Espace de restauration' },
-    { src: '/src/public/image/Kobayah/kobayah 4.jpeg', alt: 'Menu spécial de RFC', caption: 'Nos spécialités' },
-    { src: '/src/public/image/Kobayah/kobayah 5.jpeg', alt: 'Service client à RFC Kobayah', caption: 'Service rapide et attentionné' },
-    { src: '/src/public/image/Kobayah/kobayah 6.jpeg', alt: 'Plats populaires de RFC', caption: 'Nos plats favoris' },
-    { src: '/src/public/image/Kobayah/kobayah 7.jpeg', alt: 'Assortiment de poulet frit', caption: 'Nos différentes recettes de poulet' },
-    { src: '/src/public/image/Kobayah/kobayah 8.jpeg', alt: 'Ambiance du restaurant', caption: 'L\'atmosphère conviviale de RFC Kobayah' },
-    { src: '/src/public/image/Kobayah/kobayah 9.jpeg', alt: 'Équipe de service', caption: 'Notre équipe à votre service' },
-    { src: '/src/public/image/Kobayah/kobayah 10.jpeg', alt: 'Plat spécial weekend', caption: 'Notre offre spéciale du weekend' },
-    { src: '/src/public/image/Kobayah/kobayah 11.jpeg', alt: 'Espace terrasse', caption: 'Notre terrasse extérieure' },
-    { src: '/src/public/image/Kobayah/kobayah 12.jpeg', alt: 'Desserts assortis', caption: 'Sélection de desserts gourmands' },
-    { src: '/src/public/image/Kobayah/kobayah 13.jpeg', alt: 'Vue extérieure du restaurant', caption: 'La façade de RFC Kobayah' },
-    { src: '/src/public/image/Kobayah/kobayah 14.jpeg', alt: 'Menu enfant', caption: 'Options pour les plus jeunes' },
-    { src: '/src/public/image/Kobayah/kobayah 15.jpeg', alt: 'Événement spécial', caption: 'Un de nos événements clients' },
-    { src: '/src/public/image/Kobayah/kobayah 16.jpeg', alt: 'Préparation en cuisine', caption: 'Notre cuisine en action' },
-    { src: '/src/public/image/Kobayah/kobayah 17.jpeg', alt: 'Vue prestigieuse', caption: 'Notre ambiance unique' },
-    { src: '/src/public/image/Kobayah/kobayah 18.jpeg', alt: 'Plat familial', caption: 'Option pour toute la famille' },
-    { src: '/src/public/image/Kobayah/kobayah 19.jpeg', alt: 'Spécialités locales', caption: 'Nos recettes inspirées des saveurs locales' },
-    { src: '/src/public/image/Kobayah/kobayah 20.jpeg', alt: 'Sauces spéciales', caption: 'Nos sauces maison' },
-    { src: '/src/public/image/Kobayah/kobayah 21.jpeg', alt: 'Burger gourmet', caption: 'Notre burger signature' },
-    { src: '/src/public/image/Kobayah/kobayah 22.jpeg', alt: 'Ailes de poulet épicées', caption: 'Nos wings épicées' },
-    { src: '/src/public/image/Kobayah/kobayah 23.jpeg', alt: 'Espace privé', caption: 'Zone réservée pour événements' },
-    { src: '/src/public/image/Kobayah/kobayah 24.jpeg', alt: 'Menu brunch', caption: 'Notre offre de brunch' },
-    { src: '/src/public/image/Kobayah/kobayah 25.jpeg', alt: 'Plats à partager', caption: 'Idéal pour partager entre amis' }
+    { src: '/image/Kobayah/kobayah 1.jpeg', alt: 'Restaurant RFC Kobayah', caption: 'Vue du restaurant' },
+    { src: '/image/Kobayah/kobayah 2.jpeg', alt: 'Plat signature de RFC Kobayah', caption: 'Notre délicieux poulet frit' },
+    { src: '/image/Kobayah/kobayah 3.jpeg', alt: 'Intérieur du restaurant', caption: 'Espace de restauration' },
+    { src: '/image/Kobayah/kobayah 4.jpeg', alt: 'Menu spécial de RFC', caption: 'Nos spécialités' },
+    { src: '/image/Kobayah/kobayah 5.jpeg', alt: 'Service client à RFC Kobayah', caption: 'Service rapide et attentionné' },
+    { src: '/image/Kobayah/kobayah 6.jpeg', alt: 'Plats populaires de RFC', caption: 'Nos plats favoris' },
+    { src: '/image/Kobayah/kobayah 7.jpeg', alt: 'Assortiment de poulet frit', caption: 'Nos différentes recettes de poulet' },
+    { src: '/image/Kobayah/kobayah 8.jpeg', alt: 'Ambiance du restaurant', caption: 'L\'atmosphère conviviale de RFC Kobayah' },
+    { src: '/image/Kobayah/kobayah 9.jpeg', alt: 'Équipe de service', caption: 'Notre équipe à votre service' },
+    { src: '/image/Kobayah/kobayah 10.jpeg', alt: 'Plat spécial weekend', caption: 'Notre offre spéciale du weekend' },
+    { src: '/image/Kobayah/kobayah 11.jpeg', alt: 'Espace terrasse', caption: 'Notre terrasse extérieure' },
+    { src: '/image/Kobayah/kobayah 12.jpeg', alt: 'Desserts assortis', caption: 'Sélection de desserts gourmands' },
+    { src: '/image/Kobayah/kobayah 13.jpeg', alt: 'Vue extérieure du restaurant', caption: 'La façade de RFC Kobayah' },
+    { src: '/image/Kobayah/kobayah 14.jpeg', alt: 'Menu enfant', caption: 'Options pour les plus jeunes' },
+    { src: '/image/Kobayah/kobayah 15.jpeg', alt: 'Événement spécial', caption: 'Un de nos événements clients' },
+    { src: '/image/Kobayah/kobayah 16.jpeg', alt: 'Préparation en cuisine', caption: 'Notre cuisine en action' },
+    { src: '/image/Kobayah/kobayah 17.jpeg', alt: 'Vue prestigieuse', caption: 'Notre ambiance unique' },
+    { src: '/image/Kobayah/kobayah 18.jpeg', alt: 'Plat familial', caption: 'Option pour toute la famille' },
+    { src: '/image/Kobayah/kobayah 19.jpeg', alt: 'Spécialités locales', caption: 'Nos recettes inspirées des saveurs locales' },
+    { src: '/image/Kobayah/kobayah 20.jpeg', alt: 'Sauces spéciales', caption: 'Nos sauces maison' },
+    { src: '/image/Kobayah/kobayah 21.jpeg', alt: 'Burger gourmet', caption: 'Notre burger signature' },
+    { src: '/image/Kobayah/kobayah 22.jpeg', alt: 'Ailes de poulet épicées', caption: 'Nos wings épicées' },
+    { src: '/image/Kobayah/kobayah 23.jpeg', alt: 'Espace privé', caption: 'Zone réservée pour événements' },
+    { src: '/image/Kobayah/kobayah 24.jpeg', alt: 'Menu brunch', caption: 'Notre offre de brunch' },
+    { src: '/image/Kobayah/kobayah 25.jpeg', alt: 'Plats à partager', caption: 'Idéal pour partager entre amis' }
   ];
 
   const indexOfLastImage = currentPage * imagesPerPage;
@@ -115,7 +115,7 @@ const Kobayah = () => {
       {/* Hero Section - Updated to use kobayah 2.jpeg */}
       <section
         className="relative bg-cover bg-center h-[490px] flex items-center justify-center"
-        style={{ backgroundImage: "url('/src/public/image/Kobayah/kobayah 2.jpeg')" }}
+        style={{ backgroundImage: "url('/image/Kobayah/kobayah 2.jpeg')" }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative z-10 text-center text-white">
@@ -205,7 +205,7 @@ const Kobayah = () => {
                   data-glf-cuid="561941df-3039-448e-a17b-04a33468a324"
                   data-glf-ruid="207b0721-e963-41ff-a9b3-c4eda4fb5b2b"
                   style={{
-                    backgroundImage: 'url(/src/public/image/button-bg.jpg)',
+                    backgroundImage: 'url(/image/button-bg.jpg)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}

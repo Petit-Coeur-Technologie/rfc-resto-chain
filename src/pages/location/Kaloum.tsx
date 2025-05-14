@@ -15,97 +15,97 @@ const Kaloum = () => {
   // Gallery images array with all 19 images
   const galleryImages = [
     {
-      src: '/src/public/image/Kaloum/kaloum 1.jpeg',
+      src: '/image/Kaloum/kaloum 1.jpeg',
       alt: 'Restaurant RFC Kaloum',
       caption: 'Vue du restaurant'
     },
     {
-      src: '/src/public/image/Kaloum/kaloum 2.jpeg',
+      src: '/image/Kaloum/kaloum 2.jpeg',
       alt: 'Plat signature de RFC Kaloum',
       caption: 'Notre délicieux poulet frit'
     },
     {
-      src: '/src/public/image/Kaloum/kaloum 3.jpeg',
+      src: '/image/Kaloum/kaloum 3.jpeg',
       alt: 'Intérieur du restaurant',
       caption: 'Espace de restauration'
     },
     {
-      src: '/src/public/image/Kaloum/kaloum 4.jpeg',
+      src: '/image/Kaloum/kaloum 4.jpeg',
       alt: 'Menu spécial de RFC',
       caption: 'Nos spécialités'
     },
     {
-      src: '/src/public/image/Kaloum/kaloum 5.jpeg',
+      src: '/image/Kaloum/kaloum 5.jpeg',
       alt: 'Service client à RFC Kaloum',
       caption: 'Service rapide et attentionné'
     },
     {
-      src: '/src/public/image/Kaloum/kaloum 6.jpeg',
+      src: '/image/Kaloum/kaloum 6.jpeg',
       alt: 'Plats populaires de RFC',
       caption: 'Nos plats favoris'
     },
     {
-      src: '/src/public/image/Kaloum/kaloum 7.jpeg',
+      src: '/image/Kaloum/kaloum 7.jpeg',
       alt: 'Assortiment de poulet frit',
       caption: 'Nos différentes recettes de poulet'
     },
     {
-      src: '/src/public/image/Kaloum/kaloum 8.jpeg',
+      src: '/image/Kaloum/kaloum 8.jpeg',
       alt: 'Ambiance du restaurant',
       caption: 'L\'atmosphère conviviale de RFC Kaloum'
     },
     {
-      src: '/src/public/image/Kaloum/kaloum 9.jpeg',
+      src: '/image/Kaloum/kaloum 9.jpeg',
       alt: 'Équipe de service',
       caption: 'Notre équipe à votre service'
     },
     {
-      src: '/src/public/image/Kaloum/kaloum 10.jpeg',
+      src: '/image/Kaloum/kaloum 10.jpeg',
       alt: 'Plat spécial weekend',
       caption: 'Notre offre spéciale du weekend'
     },
     {
-      src: '/src/public/image/Kaloum/kaloum 11.jpeg',
+      src: '/image/Kaloum/kaloum 11.jpeg',
       alt: 'Espace terrasse',
       caption: 'Notre terrasse extérieure'
     },
     {
-      src: '/src/public/image/Kaloum/kaloum 12.jpeg',
+      src: '/image/Kaloum/kaloum 12.jpeg',
       alt: 'Desserts assortis',
       caption: 'Sélection de desserts gourmands'
     },
     {
-      src: '/src/public/image/Kaloum/kaloum 13.jpeg',
+      src: '/image/Kaloum/kaloum 13.jpeg',
       alt: 'Vue extérieure du restaurant',
       caption: 'La façade de RFC Kaloum'
     },
     {
-      src: '/src/public/image/Kaloum/kaloum 14.jpeg',
+      src: '/image/Kaloum/kaloum 14.jpeg',
       alt: 'Menu enfant',
       caption: 'Options pour les plus jeunes'
     },
     {
-      src: '/src/public/image/Kaloum/kaloum 15.jpeg',
+      src: '/image/Kaloum/kaloum 15.jpeg',
       alt: 'Événement spécial',
       caption: 'Un de nos événements clients'
     },
     {
-      src: '/src/public/image/Kaloum/kaloum 16.jpeg',
+      src: '/image/Kaloum/kaloum 16.jpeg',
       alt: 'Préparation en cuisine',
       caption: 'Notre cuisine en action'
     },
     {
-      src: '/src/public/image/Kaloum/kaloum 17.jpeg',
+      src: '/image/Kaloum/kaloum 17.jpeg',
       alt: 'Boissons et cocktails',
       caption: 'Notre sélection de boissons'
     },
     {
-      src: '/src/public/image/Kaloum/kaloum 18.jpeg',
+      src: '/image/Kaloum/kaloum 18.jpeg',
       alt: 'Plat familial',
       caption: 'Option pour toute la famille'
     },
     {
-      src: '/src/public/image/Kaloum/kaloum 19.jpeg',
+      src: '/image/Kaloum/kaloum 19.jpeg',
       alt: 'Spécialités locales',
       caption: 'Nos recettes inspirées des saveurs locales'
     }
@@ -195,7 +195,7 @@ const Kaloum = () => {
       {/* Hero Section - Updated to use kaloum 3.jpeg */}
       <section
         className="relative bg-cover bg-center h-[490px] flex items-center justify-center"
-        style={{ backgroundImage: "url('/src/public/image/Kaloum/kaloum 3.jpeg')" }}
+        style={{ backgroundImage: "url('/image/Kaloum/kaloum 3.jpeg')" }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative z-10 text-center text-white">
@@ -285,7 +285,7 @@ const Kaloum = () => {
                   data-glf-cuid="561941df-3039-448e-a17b-04a33468a324"
                   data-glf-ruid="0159cb6f-8a4a-4045-94ef-677c12d1687d"
                   style={{
-                    backgroundImage: 'url(/src/public/image/button-bg.jpg)',
+                    backgroundImage: 'url(/image/button-bg.jpg)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}

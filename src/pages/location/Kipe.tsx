@@ -16,57 +16,57 @@ const Kipe = () => {
   // Gallery images array with all 11 images
   const galleryImages = [
     {
-      src: '/src/public/image/Kipe/kipe 1.jpeg',
+      src: '/image/Kipe/kipe 1.jpeg',
       alt: 'Restaurant RFC Kipé',
       caption: 'Vue du restaurant'
     },
     {
-      src: '/src/public/image/Kipe/kipe 2.jpeg',
+      src: '/image/Kipe/kipe 2.jpeg',
       alt: 'Plat signature de RFC Kipé',
       caption: 'Notre délicieux poulet frit'
     },
     {
-      src: '/src/public/image/Kipe/kipe 3.jpeg',
+      src: '/image/Kipe/kipe 3.jpeg',
       alt: 'Intérieur du restaurant',
       caption: 'Espace de restauration'
     },
     {
-      src: '/src/public/image/Kipe/kipe 4.jpeg',
+      src: '/image/Kipe/kipe 4.jpeg',
       alt: 'Menu spécial de RFC',
       caption: 'Nos spécialités'
     },
     {
-      src: '/src/public/image/Kipe/kipe 5.jpeg',
+      src: '/image/Kipe/kipe 5.jpeg',
       alt: 'Service client à RFC Kipé',
       caption: 'Service rapide et attentionné'
     },
     {
-      src: '/src/public/image/Kipe/kipe 6.jpeg',
+      src: '/image/Kipe/kipe 6.jpeg',
       alt: 'Plats populaires de RFC',
       caption: 'Nos plats favoris'
     },
     {
-      src: '/src/public/image/Kipe/kipe 7.jpeg',
+      src: '/image/Kipe/kipe 7.jpeg',
       alt: 'Assortiment de poulet frit',
       caption: 'Nos différentes recettes de poulet'
     },
     {
-      src: '/src/public/image/Kipe/kipe 8.jpeg',
+      src: '/image/Kipe/kipe 8.jpeg',
       alt: 'Ambiance du restaurant',
       caption: 'L\'atmosphère conviviale de RFC Kipé'
     },
     {
-      src: '/src/public/image/Kipe/kipe 9.jpeg',
+      src: '/image/Kipe/kipe 9.jpeg',
       alt: 'Équipe de service',
       caption: 'Notre équipe à votre service'
     },
     {
-      src: '/src/public/image/Kipe/kipe 10.jpeg',
+      src: '/image/Kipe/kipe 10.jpeg',
       alt: 'Plat spécial weekend',
       caption: 'Notre offre spéciale du weekend'
     },
     {
-      src: '/src/public/image/Kipe/kipe 11.jpeg',
+      src: '/image/Kipe/kipe 11.jpeg',
       alt: 'Espace terrasse',
       caption: 'Notre terrasse extérieure'
     }
@@ -156,7 +156,7 @@ const Kipe = () => {
       {/* Hero Section - Updated to use kipe 3.jpeg */}
       <section
         className="relative bg-cover bg-center h-[490px] flex items-center justify-center"
-        style={{ backgroundImage: "url('/src/public/image/Kipe/kipe 3.jpeg')" }}
+        style={{ backgroundImage: "url('/image/Kipe/kipe 10.jpeg')" }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative z-10 text-center text-white">
@@ -246,7 +246,7 @@ const Kipe = () => {
                   data-glf-cuid="561941df-3039-448e-a17b-04a33468a324"
                   data-glf-ruid="1a432878-2146-4f62-ae65-2c8afd047015"
                   style={{
-                    backgroundImage: 'url(/src/public/image/button-bg.jpg)',
+                    backgroundImage: 'url(/image/button-bg.jpg)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}

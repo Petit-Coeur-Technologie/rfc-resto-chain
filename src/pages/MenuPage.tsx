@@ -33,6 +33,29 @@ const MenuPage = () => {
     });
   };
 
+  // Add this function to handle horizontal scrolling of categories
+  useEffect(() => {
+    if (activeCategory) {
+      // Find the active category element
+      const activeElement = document.querySelector(`[data-category-nav="${activeCategory}"]`);
+      
+      if (activeElement) {
+        // Get the scrollable container
+        const scrollContainer = document.querySelector('.hide-scrollbar');
+        
+        if (scrollContainer) {
+          // Calculate position to center the active item
+          const containerWidth = scrollContainer.offsetWidth;
+          const activeElementLeft = activeElement.offsetLeft;
+          const activeElementWidth = activeElement.offsetWidth;
+          
+          // Scroll to position that centers the active element
+          scrollContainer.scrollLeft = activeElementLeft - (containerWidth / 2) + (activeElementWidth / 2);
+        }
+      }
+    }
+  }, [activeCategory]);
+
   const menuItems = [
     {
       category: 'PERI PERI & BURGERS',
@@ -416,12 +439,13 @@ const MenuPage = () => {
       </section>
       
       {/* Improved category navigation for mobile */}
-      <div className="sticky top-16 z-20 bg-white shadow-sm py-4">
+      <div className="sticky top-[75px] md:top-[64px] z-30 bg-white shadow-sm py-4">
         <div className="container mx-auto px-1"> {/* Reduced horizontal padding */}
-          <div className="flex overflow-x-auto hide-scrollbar gap-2">
+          <div className="flex overflow-x-auto hide-scrollbar gap-2 pb-2">
             {menuItems.map((category) => (
               <div
                 key={category.category}
+                data-category-nav={category.category}  // Add this attribute
                 onClick={() => scrollToCategory(category.category)}
                 className={`cursor-pointer px-3 py-2 rounded-lg text-sm font-medium flex items-center flex-shrink-0 ${
                   activeCategory === category.category
