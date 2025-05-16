@@ -282,8 +282,8 @@ const HomePage = () => {
                 </h2>
                 
                 <p className="text-xl text-center text-white/90 mb-8 max-w-3xl mx-auto">
-                  Profitez de la livraison rapide RFC directement chez vous. Commandez via notre site, par téléphone
-                  ou sur WhatsApp.
+                  Profitez de la livraison rapide RFC directement chez vous. Commandez via notre application mobile RFC,
+                  notre site web ou par téléphone.
                 </p>
                 
                 <div className="flex justify-center">

@@ -170,11 +170,11 @@ const Tombolia = () => {
               <div>
                 <h2 className="text-3xl font-bold mb-4 text-[#D62828]">RFC TOMBOLIA</h2>
                 <p className="text-gray-700 mb-4">
-                  321 Boulevard Tombolia <br />
+                  Tombolia dans la cour du cinéma, <br />
                   Conakry, Guinée
                 </p>
                 <p className="text-gray-700 mb-4">
-                  <strong>Téléphone:</strong> (224) 622-111-222
+                  <strong>Téléphone:</strong> 627 50 73 47
                 </p>
                 
                 <span 

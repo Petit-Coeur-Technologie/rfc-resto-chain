@@ -74,7 +74,7 @@ const Footer = () => {
           <a href="https://www.facebook.com/romafriedchiken" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
             <FaFacebook size={24} />
           </a>
-          <a href="https://wa.me/224620127142" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
+          <a href="https://wa.me/224628614191" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
             <FaWhatsapp size={24} />
           </a>
         </div>

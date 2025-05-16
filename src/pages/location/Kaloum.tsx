@@ -272,11 +272,11 @@ const Kaloum = () => {
               <div>
                 <h2 className="text-3xl font-bold mb-4 text-[#D62828]">RFC KALOUM</h2>
                 <p className="text-gray-700 mb-4">
-                  567 Avenue Kaloum <br />
+                  Station Total à côté de Lipco, Kaloum, <br />
                   Conakry, Guinée
                 </p>
                 <p className="text-gray-700 mb-4">
-                  <strong>Téléphone:</strong> (224) 622-333-444
+                  <strong>Téléphone:</strong> 626 50 25 79
                 </p>
                 
                 {/* Gloria Food Order Button */}

@@ -165,7 +165,11 @@ const Nongo = () => {
                   Conakry, Guinée
                 </p>
                 <p className="text-gray-700 mb-4">
-                  <strong>Téléphone:</strong> (224) 622-789-012
+                  Star, Nongo Taady carefour Diawara en face de la station, <br />
+                  Conakry, Guinée
+                </p>
+                <p className="text-gray-700 mb-4">
+                  <strong>Téléphone:</strong> 610 04 13 03
                 </p>
                 <span 
                   className="glf-button inline-block px-8 py-3 bg-[#EEAF20] text-white font-bold rounded hover:bg-[#D62828] transition cursor-pointer"
